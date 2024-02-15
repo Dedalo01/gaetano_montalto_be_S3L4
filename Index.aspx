@@ -3,4 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
    
+    <asp:DropDownList ID="CarsDropDown" runat="server">
+        <asp:ListItem>Nessuna</asp:ListItem>
+    </asp:DropDownList>
+    <br />
+    <br />
+    <asp:Image ID="CarImage" runat="server" />
+
+   
 </asp:Content>

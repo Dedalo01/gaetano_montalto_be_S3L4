@@ -10,6 +10,9 @@ namespace eserS3L4
         private List<Optional> _optionals;
         private Garanzia _totaleGaranzia = new Garanzia();
 
+        public string Nome { get { return _nome; } }
+
+        public string ImageUrl { get { return _imageUrl; } }
         public double GaranziaTotale
         {
             get
