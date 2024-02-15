@@ -15,15 +15,27 @@ namespace eserS3L4
             listaAutomobili.Add(new Automobile("Yaris Hybrid", 34500.14, "https://cdn.drivek.com/configurator-imgs/cars/it/$original$/TOYOTA/YARIS-HYBRID/43155_HATCHBACK-5-DOORS/toyota-yaris-front-view.jpg"));
             listaAutomobili.Add(new Automobile("Suzuki S-cross Hybrid", 35000.99, "https://i.ytimg.com/vi/4vch3npo8U8/maxresdefault.jpg"));
 
-            foreach (Automobile automobile in listaAutomobili)
+            // fai questo solo nel primo render, altrimenti vai avanti
+            if (!IsPostBack)
             {
-                ListItem listItem = new ListItem(automobile.Nome, automobile.ImageUrl);
-                CarsDropDown.Items.Add(listItem);
+                foreach (Automobile automobile in listaAutomobili)
+                {
+                    ListItem carItem = new ListItem(automobile.Nome, automobile.ImageUrl);
+                    CarsDropDown.Items.Add(carItem);
+                }
             }
 
+            // ad ogni render cerca se l'auto selezionata ha una stessa imageUrl di quella contenuta
+            foreach (Automobile automobile in listaAutomobili)
+            {
+                if (CarsDropDown.SelectedValue == automobile.ImageUrl)
+                {
+                    CarImage.ImageUrl = automobile.ImageUrl;
+                    return;
+                }
+            }
 
         }
-
 
     }
 }
